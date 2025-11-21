@@ -287,7 +287,15 @@ export async function getUserRepositories(
     }
 
     // Parse JSON from stdout
-    let repos: any[];
+    interface GhRepoData {
+      name?: string;
+      nameWithOwner?: string;
+      description?: string;
+      visibility?: string;
+      isPrivate?: boolean;
+    }
+
+    let repos: GhRepoData[];
     try {
       repos = JSON.parse(result.stdout);
     } catch (parseError) {
@@ -299,7 +307,7 @@ export async function getUserRepositories(
       repos = [repos];
     }
 
-    return repos.map((repo: any) => ({
+    return repos.map((repo: GhRepoData) => ({
       name: repo.name || "",
       fullName: repo.nameWithOwner || repo.name || "",
       description: repo.description || "",
