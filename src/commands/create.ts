@@ -742,7 +742,9 @@ async function collectUserInputs(
         let resolved = false;
 
         quickPick.onDidAccept(() => {
-          if (resolved) return;
+          if (resolved) {
+            return;
+          }
           const selected = quickPick
             .activeItems[0] as (typeof allOptions)[number];
           // If "← Back" is selected, default to Private (since Private should be the default)
@@ -826,7 +828,9 @@ async function collectUserInputs(
         let resolved = false;
 
         quickPick.onDidAccept(() => {
-          if (resolved) return;
+          if (resolved) {
+            return;
+          }
           const selected = quickPick
             .activeItems[0] as (typeof allOptions)[number];
           // If "← Back" is selected, default to No (since No should be the default)
@@ -930,7 +934,9 @@ async function collectUserInputs(
         let resolved = false;
 
         quickPick.onDidAccept(() => {
-          if (resolved) return;
+          if (resolved) {
+            return;
+          }
           const selected = quickPick
             .activeItems[0] as (typeof allOptions)[number];
           if (selected && selected.label === "← Back" && noOption) {
@@ -1045,7 +1051,9 @@ async function collectUserInputs(
         let resolved = false;
 
         quickPick.onDidAccept(() => {
-          if (resolved) return;
+          if (resolved) {
+            return;
+          }
           const selected = quickPick
             .activeItems[0] as (typeof allOptions)[number];
           if (selected && selected.label === "← Back" && noneOption) {
@@ -1128,7 +1136,9 @@ async function collectUserInputs(
         let resolved = false;
 
         quickPick.onDidAccept(() => {
-          if (resolved) return;
+          if (resolved) {
+            return;
+          }
           const selected = quickPick
             .activeItems[0] as (typeof allOptions)[number];
           // If "← Back" is selected, default to No (since No should be the default)
@@ -1252,7 +1262,9 @@ async function collectUserInputs(
         let resolved = false;
 
         quickPick.onDidAccept(() => {
-          if (resolved) return;
+          if (resolved) {
+            return;
+          }
           const selected = quickPick
             .activeItems[0] as (typeof allOptions)[number];
           // If "← Back" is selected, default to Yes (since Yes should be the default)
@@ -1364,7 +1376,9 @@ async function collectUserInputs(
         let resolved = false;
 
         quickPick.onDidAccept(() => {
-          if (resolved) return;
+          if (resolved) {
+            return;
+          }
           const selected = quickPick
             .activeItems[0] as (typeof allOptions)[number];
           // If "← Back" is selected, default to No (since No should be the default)
@@ -1449,7 +1463,9 @@ async function collectUserInputs(
         let resolved = false;
 
         quickPick.onDidAccept(() => {
-          if (resolved) return;
+          if (resolved) {
+            return;
+          }
           const selected = quickPick
             .activeItems[0] as (typeof allOptions)[number];
           // If "← Back" is selected, default to No (since No should be the default)
@@ -1555,7 +1571,9 @@ async function collectUserInputs(
               let resolved = false;
 
               quickPick.onDidAccept(() => {
-                if (resolved) return;
+                if (resolved) {
+                  return;
+                }
                 const selected = quickPick.activeItems[0];
                 if (selected.label === "← Back") {
                   resolved = true;
@@ -1698,7 +1716,9 @@ async function collectUserInputs(
             }
           } else {
             // Value was selected
-            (settings as any)[prompt.key] = result;
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            (settings as Record<string, boolean | undefined>)[prompt.key] =
+              result;
             settingIndex++;
           }
         }

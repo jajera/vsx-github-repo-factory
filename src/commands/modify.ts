@@ -269,7 +269,9 @@ async function collectModifications(
       let resolved = false;
 
       quickPick.onDidAccept(() => {
-        if (resolved) return;
+        if (resolved) {
+          return;
+        }
         const selected = quickPick.activeItems[0];
         if (selected.label === "← Back") {
           resolved = true;
@@ -468,8 +470,10 @@ async function collectModifications(
         let resolved = false;
 
         quickPick.onDidAccept(() => {
-          if (resolved) return;
-          const selected = quickPick.activeItems[0] as any;
+          if (resolved) {
+            return;
+          }
+          const selected = quickPick.activeItems[0] as vscode.QuickPickItem;
           if (selected?.label === "← Back") {
             resolved = true;
             quickPick.dispose();
@@ -578,8 +582,10 @@ async function collectModifications(
         let resolved = false;
 
         quickPick.onDidAccept(() => {
-          if (resolved) return;
-          const selected = quickPick.activeItems[0] as any;
+          if (resolved) {
+            return;
+          }
+          const selected = quickPick.activeItems[0] as vscode.QuickPickItem;
           if (selected?.label === "← Back") {
             resolved = true;
             quickPick.dispose();
